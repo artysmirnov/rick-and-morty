@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import character from "./Character";
 import {type} from "@testing-library/user-event/dist/type";
+import {TailSpin} from "react-loader-spinner";
 
 const ModalWindow = styled.div`
     height: 100%;
@@ -45,23 +46,37 @@ const ModalImg = styled.img`
 const Modal = ({setActive, active, currentCharacter, setCharacter}) => {
     return (<div>
             {
-                active ? <ModalWindow onClick={() => setActive(false)}>
+                active ? <ModalWindow onClick={() => {
+                        setActive(false)
+                        setCharacter('')
+                    }}>
 
-                        <ModalContent onClick={e => e.stopPropagation()}>
-                            <CrossButton onClick={() => {
-                                setActive(false)
-                                setCharacter('')
-                            }}>X</CrossButton>
-                            <p>Name: {currentCharacter.name}</p>
-                            <p>Status: {currentCharacter.species}</p>
-                            <p>Type: {currentCharacter.type ? currentCharacter.type : "unknown"}</p>
-                            <p>Species: {currentCharacter.species}</p>
-                            <p>Gender: {currentCharacter.gender}</p>
-                            <p>Origin: {currentCharacter.origin && currentCharacter.origin.name}</p>
-                            <p>Location: {currentCharacter.location && currentCharacter.location.name}</p>
-                            <ModalImg src={currentCharacter.image} alt={character.name}/>
+                        {currentCharacter.name ?
 
-                        </ModalContent>
+                            <ModalContent onClick={e => e.stopPropagation()}>
+                                <CrossButton onClick={() => {
+                                    setActive(false)
+                                    setCharacter('')
+                                }}>X</CrossButton>
+                                <p>Name: {currentCharacter.name}</p>
+                                <p>Status: {currentCharacter.species}</p>
+                                <p>Type: {currentCharacter.type ? currentCharacter.type : "unknown"}</p>
+                                <p>Species: {currentCharacter.species}</p>
+                                <p>Gender: {currentCharacter.gender}</p>
+                                <p>Origin: {currentCharacter.origin && currentCharacter.origin.name}</p>
+                                <p>Location: {currentCharacter.location && currentCharacter.location.name}</p>
+                                <ModalImg src={currentCharacter.image} alt={character.name}/>
+
+                            </ModalContent> : (
+                                <TailSpin visible={true}
+                                          height="80"
+                                          width="80"
+                                          color="blue"
+                                          ariaLabel="tail-spin-loading"
+                                          radius="1"
+                                          wrapperStyle={{}}
+                                          wrapperClass=""/>
+                            )}
                     </ModalWindow>
                     : <></>
             }

@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import Status from "./category/Status";
+import {TailSpin} from "react-loader-spinner";
 
 const Heading = styled.h3`
     max-width: 250px;
     word-break: normal;
-    color:whitesmoke;
+    color: whitesmoke;
     cursor: pointer;`
 
-const StyledCharacter=styled.div`
+const StyledCharacter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +20,7 @@ const StyledCharacter=styled.div`
     padding: 10px;
 `
 const StyledText = styled.p`
-color:whitesmoke`
+    color: whitesmoke`
 
 const StyledImg = styled.img`
     border-radius: 10px;
@@ -29,14 +30,24 @@ const StyledImg = styled.img`
     min-width: 140px;
 `
 
-function Character({character, setActive,setCharacter}) {
+function Character({character, setActive, setCharacter}) {
     return (
         <StyledCharacter>
             <Heading onClick={() => {
                 setCharacter(character.id)
                 setActive(true)
             }}>{character.name}</Heading>
-            <StyledImg src={character.image} alt={character.name}/>
+            {character.image ? <StyledImg src={character.image} alt={character.name}/> : (
+                <TailSpin visible={true}
+                          height="80"
+                          width="80"
+                          color="blue"
+                          ariaLabel="tail-spin-loading"
+                          radius="1"
+                          wrapperStyle={{}}
+                          wrapperClass=""/>
+            )}
+
             <StyledText>Gender: {character.gender}</StyledText>
             <StyledText>Status: {character.status}</StyledText>
         </StyledCharacter>

@@ -5,6 +5,7 @@ import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
 import styled from "styled-components";
+import {TailSpin} from 'react-loader-spinner'
 
 
 const ListStyled = styled.div`
@@ -59,7 +60,7 @@ function List() {
 
     return (
         <ListStyled>
-           <img src="rickAndMorty.png" alt="тут логотип" width='100'/>
+            <img src="rickAndMorty.png" alt="тут логотип" width='100'/>
             <div><p>Search by name </p><SearchBar setSearchName={setSearchName}/></div>
             <div><p>Search by type </p><SearchBar setSearchType={setSearchType}/></div>
             <Filters
@@ -71,7 +72,16 @@ function List() {
                 setSearchType={setSearchType}
             />
             <Pagination info={info} setPage={setPage} pageNumber={page}/>
-            {loading ? (<div>Loading...</div>) :
+            {loading ? (
+                    <TailSpin visible={true}
+                              height="80"
+                              width="80"
+                              color="blue"
+                              ariaLabel="tail-spin-loading"
+                              radius="1"
+                              wrapperStyle={{}}
+                              wrapperClass=""/>
+                ) :
                 (
                     results ?
                         results.map((character) => (
@@ -86,7 +96,9 @@ function List() {
 
                         )) : <p>No results</p>
                 )}
-            <Modal active={modalActive} setActive={setModalActive} currentCharacter={modalCharacter} setCharacter={setCurrentCharacter}/>
+
+            <Modal active={modalActive} setActive={setModalActive} currentCharacter={modalCharacter}
+                   setCharacter={setCurrentCharacter}/> :
         </ListStyled>
     )
 }
