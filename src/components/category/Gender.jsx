@@ -9,6 +9,7 @@ const StyledGender = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     gap: 10px;
+    max-width: 100%;
 `
 
 const Gender = ({setPage,setGender}) => {

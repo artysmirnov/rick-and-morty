@@ -7,7 +7,7 @@ const ModalWindow = styled.div`
     height: 100%;
     width: 100%;
     position: fixed;
-    background-color: rgba(0,0,0,40%);
+    background-color: rgba(0, 0, 0, 40%);
     top: 0;
     left: 0;
     display: flex;
@@ -15,20 +15,43 @@ const ModalWindow = styled.div`
     align-items: center;`
 
 const ModalContent = styled.div`
+    max-width: 100%;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content:space-between ;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 5px;
-    border-radius: 12px;
+    border-radius: 20px;
     background-color: wheat`
 
-const Modal = ({setActive, active, currentCharacter}) => {
+const CrossButton = styled.button`
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+`
+const ModalImg = styled.img`
+    max-width: 200px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 4px;
+`
+
+const Modal = ({setActive, active, currentCharacter, setCharacter}) => {
     return (<div>
             {
                 active ? <ModalWindow onClick={() => setActive(false)}>
+
                         <ModalContent onClick={e => e.stopPropagation()}>
+                            <CrossButton onClick={() => {
+                                setActive(false)
+                                setCharacter('')
+                            }}>X</CrossButton>
                             <p>Name: {currentCharacter.name}</p>
                             <p>Status: {currentCharacter.species}</p>
                             <p>Type: {currentCharacter.type ? currentCharacter.type : "unknown"}</p>
@@ -36,11 +59,11 @@ const Modal = ({setActive, active, currentCharacter}) => {
                             <p>Gender: {currentCharacter.gender}</p>
                             <p>Origin: {currentCharacter.origin && currentCharacter.origin.name}</p>
                             <p>Location: {currentCharacter.location && currentCharacter.location.name}</p>
-                            <img src={currentCharacter.image} alt={character.name} width='200'/>
+                            <ModalImg src={currentCharacter.image} alt={character.name}/>
 
                         </ModalContent>
                     </ModalWindow>
-                    : <div></div>
+                    : <></>
             }
         </div>
     );

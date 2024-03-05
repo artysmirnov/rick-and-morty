@@ -9,6 +9,7 @@ const StyledSpecies = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     gap: 10px;
+    max-width: 100%;
 `
 const Species = ({setPage,setSpecies}) => {
     let species = [

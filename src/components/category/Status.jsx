@@ -8,6 +8,7 @@ const StyledStatus = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     gap: 10px;
+    max-width: 100%;
 `
 const Status = ({setPage, setStatus}) => {
     let status = ['Alive', 'Dead', 'Unknown']

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 
-const StyledSearch=styled.input`
+const StyledSearch = styled.input`
     width: max-content;
-border-radius: 10px;
+    border-radius: 10px;
 `
-const SearchName = ({setSearchName, setSearchType}) => {
+
+const SearchBar = ({setSearchName, setSearchType}) => {
     return (
         <div>
             <StyledSearch type="text" onChange={e => {
@@ -19,4 +20,4 @@ const SearchName = ({setSearchName, setSearchType}) => {
     );
 };
 
-export default SearchName;
+export default SearchBar;

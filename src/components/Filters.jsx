@@ -5,7 +5,7 @@ import Species from "./category/Species";
 import styled from "styled-components";
 
 const FiltersStyled=styled.div`
-display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
@@ -13,19 +13,15 @@ display: flex;
 const StyledFilter=styled.div`
     display: flex;
     flex-direction: column;
-gap: 10px;
+    gap: 5px;
 `
 
 let StyledButton=styled.button`
-width: 72px;
+    width: 72px;
     height: 40px;
     background-color: lawngreen;
-    border:none;
+    border: none;
     border-radius: 10px;
-    
-    :hover{
-        background-color: green;
-    }
 `
 
 const Filters = ({setStatus, setGender, setPage, setSpecies,setSearchName, setSearchType}) => {
