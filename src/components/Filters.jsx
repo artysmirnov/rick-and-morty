@@ -1,22 +1,20 @@
 import React from 'react';
-import Gender from "./category/Gender";
-import Status from "./category/Status";
-import Species from "./category/Species";
 import styled from "styled-components";
+import Category from "./Category";
 
-const FiltersStyled=styled.div`
+const FiltersStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 `
-const StyledFilter=styled.div`
+const StyledFilter = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
 `
 
-let StyledButton=styled.button`
+let StyledButton = styled.button`
     width: 72px;
     height: 40px;
     background-color: lawngreen;
@@ -24,7 +22,7 @@ let StyledButton=styled.button`
     border-radius: 10px;
 `
 
-const Filters = ({setStatus, setGender, setPage, setSpecies,setSearchName, setSearchType}) => {
+const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setSearchType}) => {
     return (
         <FiltersStyled>
             <StyledButton onClick={() => {
@@ -37,9 +35,23 @@ const Filters = ({setStatus, setGender, setPage, setSpecies,setSearchName, setSe
             }}>Clear filters
             </StyledButton>
             <StyledFilter>
-                <Gender setGender={setGender} setPage={setPage}/>
-                <Status setPage={setPage} setStatus={setStatus}/>
-                <Species setPage={setPage} setSpecies={setSpecies}/>
+                <Category setCategory={setGender} categoryName={'Gender'}
+                          elements={['female', 'male', 'genderless', 'unknown']}
+                          setPage={setPage}/>
+                <Category categoryName={'Status'} elements={['Alive', 'Dead', 'Unknown']} setPage={setPage}
+                          setCategory={setStatus}/>
+                <Category categoryName={'Species'} elements={[
+                    "Human",
+                    "Alien",
+                    "Humanoid",
+                    "Poopybutthole",
+                    "Mythological",
+                    "Unknown",
+                    "Animal",
+                    "Disease",
+                    "Robot",
+                    "Cronenberg",
+                ]} setPage={setPage} setCategory={setSpecies}/>
             </StyledFilter>
         </FiltersStyled>
     );

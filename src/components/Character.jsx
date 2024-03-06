@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Status from "./category/Status";
 import {TailSpin} from "react-loader-spinner";
 
 const Heading = styled.h3`
