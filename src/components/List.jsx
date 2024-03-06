@@ -35,27 +35,20 @@ function List() {
 
     let api = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchName}&status=${status}&gender=${gender}&species=${species}&type=${searchType}`
 
-    useEffect(() => { // получение персонажей
-        async function fetchChar() {
-            const data = await fetch(charApi)
-            const char = await data.json();
-            setModalCharacter(char)
-            setLoading(false);
-        }
+    async function fetchData(fetchApi, setFunc) {
+        const data = await fetch(fetchApi)
+        const results = await data.json();
+        setFunc(results);
+        setLoading(false);
+    }
 
-        fetchChar()
+    useEffect(() => { // получение персонажей
+        fetchData(charApi, setModalCharacter)
     }, [charApi]);
 
 
     useEffect(() => {
-        async function fetchData() {
-            const data = await fetch(api)
-            const results = await data.json();
-            setFetchedData(results);
-            setLoading(false);
-        }
-
-        fetchData()
+        fetchData(api, setFetchedData)
     }, [api]);
 
     return (
