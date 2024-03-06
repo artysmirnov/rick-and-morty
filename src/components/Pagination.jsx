@@ -17,17 +17,19 @@ width: 72px;
     border-radius: 10px;
 `
 
-const Pagination = ({setPage, pageNumber, info}) => {
+const Pagination = ({setPage, pageNumber, info,setLoading}) => {
     let next = () => {
         if (info=== undefined || pageNumber === info.pages) {
             return
         }
+        setLoading(true)
         setPage((x) => x + 1)
     }
     let prev = () => {
         if (pageNumber === 1) {
             return
         }
+        setLoading(true)
         setPage((x) => x - 1)
     }
     return (

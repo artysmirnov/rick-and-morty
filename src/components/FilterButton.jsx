@@ -9,11 +9,12 @@ let StyledFilterButton = styled.button`
     padding: 5px;
     background-color: greenyellow;
 `
-const FilterButton = ({name, index, items, task, setPage}) => {
+const FilterButton = ({name, index, items, task, setPage,setLoading}) => {
     return (
         <div>
             <StyledFilterButton
                 onClick={() => {
+                    setLoading(true)
                     setPage(1)
                     task(items)
                 }}

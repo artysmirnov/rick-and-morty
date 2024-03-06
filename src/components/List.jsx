@@ -63,8 +63,9 @@ function List() {
                 setSpecies={setSpecies}
                 setSearchName={setSearchName}
                 setSearchType={setSearchType}
+                setLoading={setLoading}
             />
-            <Pagination info={info} setPage={setPage} pageNumber={page}/>
+            <Pagination info={info} setPage={setPage} setLoading={setLoading} pageNumber={page}/>
             {loading ? (
                     <TailSpin visible={true}
                               height="80"

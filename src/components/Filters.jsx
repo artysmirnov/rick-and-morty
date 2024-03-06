@@ -22,7 +22,7 @@ let StyledButton = styled.button`
     border-radius: 10px;
 `
 
-const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setSearchType}) => {
+const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setSearchType, setLoading}) => {
     return (
         <FiltersStyled>
             <StyledButton onClick={() => {
@@ -32,14 +32,15 @@ const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setS
                 setSpecies('')
                 setSearchName('')
                 setSearchType('')
+                setLoading(true)
             }}>Clear filters
             </StyledButton>
             <StyledFilter>
                 <Category setCategory={setGender} categoryName={'Gender'}
                           elements={['female', 'male', 'genderless', 'unknown']}
-                          setPage={setPage}/>
+                          setPage={setPage} setLoading={setLoading}/>
                 <Category categoryName={'Status'} elements={['Alive', 'Dead', 'Unknown']} setPage={setPage}
-                          setCategory={setStatus}/>
+                          setCategory={setStatus} setLoading={setLoading}/>
                 <Category categoryName={'Species'} elements={[
                     "Human",
                     "Alien",
@@ -51,7 +52,7 @@ const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setS
                     "Disease",
                     "Robot",
                     "Cronenberg",
-                ]} setPage={setPage} setCategory={setSpecies}/>
+                ]} setPage={setPage} setCategory={setSpecies} setLoading={setLoading}/>
             </StyledFilter>
         </FiltersStyled>
     );
