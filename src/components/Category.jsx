@@ -9,7 +9,7 @@ const StyledCategory = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     gap: 10px;
-    max-width: 100%;
+    max-width: 100%;;
 `
 
 const Gender = ({setPage,setCategory, elements, categoryName,setLoading}) => {

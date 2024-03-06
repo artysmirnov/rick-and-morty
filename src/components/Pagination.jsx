@@ -15,6 +15,7 @@ width: 72px;
     background-color: lawngreen;
     border:none;
     border-radius: 10px;
+    cursor: pointer;
 `
 
 const Pagination = ({setPage, pageNumber, info,setLoading}) => {

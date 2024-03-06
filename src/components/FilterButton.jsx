@@ -8,6 +8,7 @@ let StyledFilterButton = styled.button`
     border-radius: 5px;
     padding: 5px;
     background-color: greenyellow;
+    cursor: pointer;
 `
 const FilterButton = ({name, index, items, task, setPage,setLoading}) => {
     return (

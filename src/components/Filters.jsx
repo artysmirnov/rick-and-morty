@@ -20,6 +20,7 @@ let StyledButton = styled.button`
     background-color: lawngreen;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 `
 
 const Filters = ({setStatus, setGender, setPage, setSpecies, setSearchName, setSearchType, setLoading}) => {
