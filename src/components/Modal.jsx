@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import character from "./Character";
-import {type} from "@testing-library/user-event/dist/type";
 import {TailSpin} from "react-loader-spinner";
 
 const ModalWindow = styled.div`
@@ -32,8 +31,12 @@ const CrossButton = styled.button`
     border: none;
     font: inherit;
     color: inherit;
-    background-color: transparent;
+    background-color: #abc;
+    border-radius: 100%;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    align-items: center;
 `
 const ModalImg = styled.img`
     max-width: 200px;

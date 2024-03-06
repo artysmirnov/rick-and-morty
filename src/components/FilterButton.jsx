@@ -9,7 +9,7 @@ let StyledFilterButton = styled.button`
     padding: 5px;
     background-color: greenyellow;
 `
-const FilterButton = ({name, index, items, task, setPage,StyledButton}) => {
+const FilterButton = ({name, index, items, task, setPage}) => {
     return (
         <div>
             <StyledFilterButton

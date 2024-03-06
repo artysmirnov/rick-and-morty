@@ -20,7 +20,7 @@ function List() {
     const [status, setStatus] = useState('') // Статус персонажа
     const [fetchedData, setFetchedData] = useState([])
     const [loading, setLoading] = useState(true); // Загрузка
-    const [page, setPage] = useState(1) // Страница
+    const [page, setPage] = useState(1) // Номер страницы
     const [gender, setGender] = useState('') // Гендер персонажа
     const [species, setSpecies] = useState('') // Вид персонажа
     const [searchName, setSearchName] = useState('') // Поиск по имени
@@ -53,7 +53,7 @@ function List() {
 
     return (
         <ListStyled>
-            <img src="rickAndMorty.png" alt="тут логотип" width='100'/>
+            <h1>Rick & Morty</h1>
             <div><p>Search by name </p><SearchBar setSearchName={setSearchName}/></div>
             <div><p>Search by type </p><SearchBar setSearchType={setSearchType}/></div>
             <Filters
@@ -91,7 +91,7 @@ function List() {
                 )}
 
             <Modal active={modalActive} setActive={setModalActive} currentCharacter={modalCharacter}
-                   setCharacter={setCurrentCharacter}/> :
+                   setCharacter={setCurrentCharacter}/>
         </ListStyled>
     )
 }
