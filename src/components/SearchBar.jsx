@@ -6,13 +6,16 @@ const StyledSearch = styled.input`
   border-radius: 10px;
 `;
 
-const SearchBar = ({ searchIn, setSearch }) => {
+const SearchBar = ({ searchIn, setSearch, setLoading }) => {
   return (
     <div>
       <StyledSearch
         type="text"
         value={searchIn}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => {
+          setLoading(true);
+          setSearch(e.target.value);
+        }}
       />
     </div>
   );

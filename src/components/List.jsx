@@ -55,11 +55,19 @@ function List() {
       <h1>Rick & Morty</h1>
       <div>
         <p>Search by name </p>
-        <SearchBar searchIn={searchName} setSearch={setSearchName} />
+        <SearchBar
+          searchIn={searchName}
+          setSearch={setSearchName}
+          setLoading={setLoading}
+        />
       </div>
       <div>
         <p>Search by type </p>
-        <SearchBar searchIn={searchType} setSearch={setSearchType} />
+        <SearchBar
+          searchIn={searchType}
+          setSearch={setSearchType}
+          setLoading={setLoading}
+        />
       </div>
       <Filters
         setStatus={setStatus}
