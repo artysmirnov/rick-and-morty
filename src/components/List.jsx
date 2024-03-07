@@ -54,8 +54,8 @@ function List() {
     return (
         <ListStyled>
             <h1>Rick & Morty</h1>
-            <div><p>Search by name </p><SearchBar setSearchName={setSearchName}/></div>
-            <div><p>Search by type </p><SearchBar setSearchType={setSearchType}/></div>
+            <div><p>Search by name </p><SearchBar searchIn={searchName} setSearch={setSearchName}/></div>
+            <div><p>Search by type </p><SearchBar searchIn={searchType} setSearch={setSearchType}/></div>
             <Filters
                 setStatus={setStatus}
                 setGender={setGender}
