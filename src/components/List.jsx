@@ -64,8 +64,10 @@ function List() {
                 setSearchName={setSearchName}
                 setSearchType={setSearchType}
                 setLoading={setLoading}
-            />
+            /> {gender || status || species ||searchName ||searchType ? <p>You are searching for {searchName} {searchType} {gender} {status} {species} </p> :
+            <p>No filters</p>}
             <Pagination info={info} setPage={setPage} setLoading={setLoading} pageNumber={page}/>
+
             {loading ? (
                     <TailSpin visible={true}
                               height="80"
