@@ -1,14 +1,12 @@
-import List from './components/List'
-import './App.css';
-
-
+import List from "./components/List";
+import "./App.css";
 
 function App() {
-    return (
-        <div className="App">
-            <List/>
-        </div>
-    );
+  return (
+    <div className="App">
+      <List />
+    </div>
+  );
 }
 
 export default App;

@@ -12,12 +12,13 @@ const StyledCategory = styled.div`
     max-width: 100%;;
 `
 
-const Gender = ({setPage,setCategory, elements, categoryName,setLoading}) => {
+const Gender = ({setPage, setCategory, elements, categoryName, setLoading}) => {
     return (
         <StyledCategory>
             {categoryName}
-            {elements.map((items,index)=>(
-                <FilterButton setLoading={setLoading} setPage={setPage} task={setCategory} key={index} index={index} items={items}/>
+            {elements.map((items, index) => (
+                <FilterButton setLoading={setLoading} setPage={setPage} task={setCategory} key={index} index={index}
+                              items={items}/>
             ))}
         </StyledCategory>
     );
