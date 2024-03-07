@@ -42,7 +42,6 @@ const Filters = ({
           setSpecies("");
           setSearchName("");
           setSearchType("");
-          setLoading(true);
         }}
       >
         Clear filters
