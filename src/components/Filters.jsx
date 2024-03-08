@@ -50,7 +50,7 @@ const Filters = ({
         <Category
           setCategory={setGender}
           categoryName={"Gender"}
-          elements={["female", "male", "genderless", "unknown"]}
+          elements={["Female", "Male", "Genderless", "Unknown"]}
           setPage={setPage}
           setLoading={setLoading}
         />
