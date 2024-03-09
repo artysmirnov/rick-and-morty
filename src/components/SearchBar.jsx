@@ -10,6 +10,7 @@ const SearchBar = ({ searchIn, setSearch, setLoading }) => {
   return (
     <div>
       <StyledSearch
+        maxLength="30"
         type="text"
         value={searchIn}
         onChange={(e) => {

@@ -42,11 +42,12 @@ function List() {
   }
 
   useEffect(() => {
-    // получение персонажей
+    // получение одного персонажа
     fetchData(charApi, setModalCharacter);
   }, [charApi]);
 
   useEffect(() => {
+    // получение персонажей
     fetchData(api, setFetchedData);
   }, [api]);
 
