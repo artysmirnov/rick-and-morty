@@ -6,10 +6,11 @@ const StyledSearch = styled.input`
   border-radius: 10px;
 `;
 
-const SearchBar = ({ searchIn, setSearch, setLoading }) => {
+const SearchBar = ({ searchIn, setSearch, setLoading, searchingBy }) => {
   return (
     <div>
       <StyledSearch
+        placeholder={searchingBy}
         maxLength="30"
         type="text"
         value={searchIn}

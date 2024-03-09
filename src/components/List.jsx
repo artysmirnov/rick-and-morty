@@ -32,13 +32,18 @@ function List() {
 
   const charApi = `https://rickandmortyapi.com/api/character/${currentCharacter}`;
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchName}&status=${status}&gender=${gender}&species=${species}&type=${searchType}`;
+  const api = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchName}&status=${status}&gender=${gender}&species=${species}&type=${searchType}`;
 
   async function fetchData(fetchApi, setFunc) {
-    const data = await fetch(fetchApi);
-    const results = await data.json();
-    setFunc(results);
-    setLoading(false);
+    try {
+      const data = await fetch(fetchApi);
+      const results = await data.json();
+      setFunc(results);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -49,22 +54,23 @@ function List() {
   useEffect(() => {
     // получение персонажей
     fetchData(api, setFetchedData);
+    console.log(api);
   }, [api]);
 
   return (
     <ListStyled>
       <h1>Rick & Morty</h1>
       <div>
-        <p>Search by name </p>
         <SearchBar
+          searchingBy="Searching by name"
           searchIn={searchName}
           setSearch={setSearchName}
           setLoading={setLoading}
         />
       </div>
       <div>
-        <p>Search by type </p>
         <SearchBar
+          searchingBy="Searching by type"
           searchIn={searchType}
           setSearch={setSearchType}
           setLoading={setLoading}
