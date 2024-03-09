@@ -70,16 +70,21 @@ const Modal = ({ setActive, active, currentCharacter, setCharacter }) => {
               </CrossButton>
               <p>Name: {currentCharacter.name}</p>
               <p>Status: {currentCharacter.species}</p>
-              <p>
-                Type:{" "}
-                {currentCharacter.type ? currentCharacter.type : "unknown"}
-              </p>
+              {currentCharacter.type ? (
+                <p>
+                  Type: {currentCharacter.type ? currentCharacter.type : <></>}
+                </p>
+              ) : (
+                <></>
+              )}
               <p>Species: {currentCharacter.species}</p>
               <p>Gender: {currentCharacter.gender}</p>
+
               <p>
                 Origin:{" "}
                 {currentCharacter.origin && currentCharacter.origin.name}
               </p>
+
               <p>
                 Location:{" "}
                 {currentCharacter.location && currentCharacter.location.name}
