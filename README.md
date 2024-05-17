@@ -1,2 +1,2 @@
-Rick & Morty app  
-You can visit it via [link](https://artysmirnov.github.io/rick-and-morty/)  
+Учебный проект с использование [Rick & Morty API](https://rickandmortyapi.com/)  
+Ссылка на [Github Pages](https://artysmirnov.github.io/rick-and-morty/)  
